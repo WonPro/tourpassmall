@@ -215,6 +215,30 @@ $(function(){
         tag: [
           '사전예약', '바로이용가능'
         ]
+      },
+      {
+        id: '005',
+        img: 'img/img_main_visualSlide_ic.jpg',
+        region: '인천',
+        tit: '[인천투어패스] 통합권',
+        price: 106000,
+        priceBefore: 216000,
+        rate: 51,
+        tag: [
+          '사전예약', '바로이용가능'
+        ]
+      },
+      {
+        id: '006',
+        img: 'img/img_main_prdRanking_flower.jpg',
+        region: '전북',
+        tit: '꽃잔디동산',
+        price: 106000,
+        priceBefore: 216000,
+        rate: 54,
+        tag: [
+          '사전예약', '바로이용가능'
+        ]
       }
     ]
 
@@ -224,7 +248,7 @@ $(function(){
     
       recommendItems.each(function(i) {
         // 이미지 삽입
-        $(this).find('.img_box').css('background-image', `url(../${dummyData2[i].img})`);
+        $(this).find('.img_box').css('background-image', `url(${dummyData2[i].img})`);
     
         // 태그 삽입
         const tagContainer = $(this).find('.tag_container');
@@ -234,10 +258,10 @@ $(function(){
           tagContainer.append(tagElement);
         });
         // 지역 삽입
-        const titContainer = $(this).find('.tit_container')
-        const regionElement = $('<span class="region font_bold"></span>').text(dummyData2[i].region);
-        titContainer.append(regionElement)
-        
+        const titContainer = $(this).find('.tit_container'),
+              regionElement = $('<span class="region font_bold"></span>').text(dummyData2[i].region);
+
+        titContainer.append(regionElement)        
         
         // 상품명 삽입
         $(this).find('.tit_container').append(dummyData2[i].tit);

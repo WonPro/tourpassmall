@@ -39,6 +39,10 @@ body{
   padding-bottom: 7rem;
 }
 
+.mobile_hide{
+  display: none;
+}
+
 .flex_container{
   display: flex;
 }
@@ -153,6 +157,10 @@ body{
 }
 
 @media screen and (min-width: 768px) {
+
+  .mobile_hide{
+    display: block;
+  }
 
   .slide_item:hover{
     cursor: grab;
