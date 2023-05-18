@@ -1,0 +1,143 @@
+@charset "urf-8";
+
+:root{
+  --primary-pink: #e50a84;
+  --gray800: #2a2a2c;
+  --gray700: #424246;
+  --gray300: #a3a3a9;
+  --gray200: #bfbfc3;
+  --gray100: #e2e2e3;
+  --white: #ffffff;
+  --gray6: #f8f8f8;
+  --gray5: #f0f0f0;
+  --gray4: #e1e1e1;
+  --gray2: #888888;
+  --gray1: #494949;
+  --dark: #282828;
+  --black: #000000;
+}
+
+body{
+  background-color: var(--gray4);
+  font-family: 'Pretendard-Regular';
+}
+
+.container{
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+.container_wrap{
+  max-width: 76.8rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--white);
+}
+
+.section{
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.font-pink{
+  color: var(--primary-pink);
+}
+
+.section_tit{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.header{
+  max-width: 76.8rem;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray5);
+  z-index: 9999;
+}
+
+.header .logo{
+  width: 4.2rem;
+  height: 4.2rem;
+  margin-bottom: 0;
+  background: url(../img/logo.svg) center center / cover no-repeat;
+  flex-grow: 0;
+}
+
+
+.header .serch_wrap {
+  flex-grow: 1;
+  position: relative;
+}
+
+.header .serch_wrap .inputSearch{
+  width: 100%;
+  padding: 1.5rem 1.5rem 1.5rem 4.8rem;
+  background-color: var(--gray5);
+  border: none;
+  border-radius: 2.5rem;
+  font-size: 1.8rem;
+  color: var(--gray700);
+  line-height: 1;
+}
+
+.header .serch_wrap .inputSearch::placeholder{
+  font-size: 1.8rem;
+  color: var(--gray2);
+}
+
+.header .serch_wrap .btn_search{
+  width: 1.8rem;
+  height: 1.8rem;
+  position: absolute;
+  top: 1.6rem;
+  left: 1.6rem;
+  background: url(../img/icon_search.svg) center center / cover no-repeat;
+  border: none;
+}
+
+.header .btn_cart{
+  width: 4.8rem;
+  height: 2.6rem;
+  padding: 0;
+  position: relative;
+  flex-grow: 0;
+  background: url(../img/icon_cart.svg) center center / cover no-repeat;
+  border: none;
+}
+
+.header .btn_cart:after{
+  content: '9+';
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: var(--primary-pink);
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 100;
+  color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+
+  .slide_item:hover{
+    cursor: grab;
+  }
+
+  .slide_item:active{
+    cursor: grabbing;
+  }
+}
