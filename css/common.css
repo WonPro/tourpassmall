@@ -39,8 +39,29 @@ body{
   padding-bottom: 7rem;
 }
 
+.flex_container{
+  display: flex;
+}
+
+.flex_container.space_between{
+  justify-content: space-between;
+}
+
+.flex_container.align_center{
+  align-items: center;
+}
+
+.link_more{
+  font-size: 1.6rem;
+  color: var(--gray400);
+}
+
 .font-pink{
   color: var(--primary-pink);
+}
+
+.font_bold{
+  font-weight: bold;
 }
 
 .section_tit{

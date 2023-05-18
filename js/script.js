@@ -21,7 +21,7 @@ $(function(){
     visualSlide.slick({
       slidesToShow: 1,
       slidesToScroll: 1,
-      dots: false,
+      dots: true,
       arrows: false,
       infinite: true,
       centerMode: true,
@@ -38,7 +38,7 @@ $(function(){
     regionPrdSlide.slick({
       rows: 1,
       slidesToShow: 3.2,
-      slidesToScroll: 1,
+      swipeToSlide: true,
       infinite: false,
       arrows: false,
     });
@@ -123,37 +123,15 @@ $(function(){
       }      
     ]
 
-
+    // 메뉴별 내림차순 정렬
     function hotRanking(tabNm) {
-      
-      //메뉴별 내림차순 정렬
-      // if (tabNm == 'total') {
-      //   dummyData.sort(function (a, b) {
-      //     return b.total - a.total;
-      //   })
-      // } else if (tabNm == 'monthly') {
-      //   dummyData.sort(function (a, b) {
-      //     return b.month - a.month;
-      //   })
-      // } else if (tabNm == 'comments') {
-      //   dummyData.sort(function (a, b) {
-      //     return b.comment - a.comment;
-      //   })
-      // } else if (tabNm == 'grade') {
-      //   dummyData.sort(function (a, b) {
-      //     return b.grade - a.grade;
-      //   })
-      // }
-      var tabName = tabNm
-      console.log(tabNm)
-      console.log(tabName)
-      console.log(dummyData[0])
-      console.log(dummyData[0].tabName)
 
+      // 필터별 배열 정렬
       dummyData.sort(function (a, b) {
-        return b.tabName - a.tabName;
-      })
+        return b[tabNm] - a[tabNm];
+      });
 
+      // html 변경
       $('#prdRanking .rank_container .rank_item').each(function(i){
         // 이미지 삽입
         $(this).find('.img_box').css('background-image', 'url(../' + dummyData[i].img + ')');
@@ -185,5 +163,101 @@ $(function(){
     })
 
   /* // Product Ranking */
+
+
+  /* Recommended Product */
+
+    let dummyData2 = [
+      {
+        id: '001',
+        img: 'img/img_main_prdRanking_dgw.jpg',
+        region: '경북',
+        tit: '동궁원',
+        price: 106000,
+        priceBefore: 216000,
+        rate: 51,
+        tag: [
+          '사전예약', '바로이용가능'
+        ]
+      },
+      {
+        id: '002',
+        img: 'img/img_main_visualSlide_kb.jpg',
+        region: '경북',
+        tit: '경북투어패스 여행 가볼만한곳 관광 전시 액티비티 카페',
+        price: 106000,
+        priceBefore: 17900,
+        rate: 51,
+        tag: [
+          '사전예약', '바로이용가능'
+        ]
+      },
+      {
+        id: '003',
+        img: 'img/img_main_visualSlide_ic.jpg',
+        region: '인천',
+        tit: '[인천투어패스] 통합권',
+        price: 106000,
+        priceBefore: 216000,
+        rate: 51,
+        tag: [
+          '사전예약', '바로이용가능'
+        ]
+      },
+      {
+        id: '004',
+        img: 'img/img_main_prdRanking_jsgg.jpg',
+        region: '전북',
+        tit: '지식공간 서유구와 빙허각',
+        price: 3000,
+        priceBefore: null,
+        rate: null,
+        tag: [
+          '사전예약', '바로이용가능'
+        ]
+      }
+    ]
+
+    function recommendPrd() {
+      // html 변경
+      const recommendItems = $('#recommendPrd .recommend_container .recommend_item');
+    
+      recommendItems.each(function(i) {
+        // 이미지 삽입
+        $(this).find('.img_box').css('background-image', `url(../${dummyData2[i].img})`);
+    
+        // 태그 삽입
+        const tagContainer = $(this).find('.tag_container');
+    
+        dummyData2[i].tag.forEach(function(tag) {
+          const tagElement = $('<span class="tag"></span>').text(tag);
+          tagContainer.append(tagElement);
+        });
+        // 지역 삽입
+        const titContainer = $(this).find('.tit_container')
+        const regionElement = $('<span class="region font_bold"></span>').text(dummyData2[i].region);
+        titContainer.append(regionElement)
+        
+        
+        // 상품명 삽입
+        $(this).find('.tit_container').append(dummyData2[i].tit);
+
+    
+        // 할인율 삽입
+        $(this).find('.text_box .price_box .rate').text(dummyData2[i].rate);
+    
+        // 판매가 삽입 (3자리마다 콤마 정규식 포함)
+        $(this).find('.text_box .price_box .price').text(dummyData2[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    
+        // 정상가 삽입 (3자리마다 콤마 정규식 포함)
+        const priceBefore = dummyData2[i].priceBefore ? dummyData2[i].priceBefore.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
+        $(this).find('.text_box .price_box .price_before').text(priceBefore);
+      });
+    }
+
+    recommendPrd();
+    
+
+  /* // Recommended Product */
   
 })

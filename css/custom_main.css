@@ -159,6 +159,7 @@
     font-size: 1.6rem;
     font-weight: 500;
     color: var(--gray700);
+    cursor: pointer;
   }
 
   #prdRanking .tab_menu li.active{
@@ -245,3 +246,95 @@
     text-decoration: line-through;
     color: var(--gray300);
   }
+
+  @media screen and (min-width: 768px) {
+
+    #prdRanking .tab_menu{
+      justify-content: center;
+      gap: 3.2rem;
+    }
+
+    #prdRanking .rank_container{
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #prdRanking .rank_container .rank_item{
+      width: 50%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border: none;
+    }
+  }
+
+  
+
+  #recommendPrd .recommend_container{
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  #recommendPrd .recommend_container .recommend_item{
+    width: calc(50% - 8px);
+  }
+
+  #recommendPrd .recommend_container .recommend_item .img_box{
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 1.6rem;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .tag_container{
+    margin-top: 0.8rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .tag_container .tag{
+    margin-left: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    background-color: var(--gray6);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-pink);
+  }
+  #recommendPrd .recommend_container .recommend_item .tag_container .tag:first-child{
+    margin-left: 0;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .tit_container{
+    height: 4.6rem;
+    margin-top: 0.4rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .tit_container .region{
+    margin-right: 0.2rem;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .price_container{
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    
+  }
+
