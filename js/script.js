@@ -134,7 +134,7 @@ $(function(){
       // html 변경
       $('#prdRanking .rank_container .rank_item').each(function(i){
         // 이미지 삽입
-        $(this).find('.img_box').css('background-image', 'url(../' + dummyData[i].img + ')');
+        $(this).find('.img_box').css('background-image', 'url(' + dummyData[i].img + ')');
         // 상품명 삽입
         $(this).find('.text_box .prd_tit').text(dummyData[i].tit);
         // 할인율 삽입
@@ -447,7 +447,7 @@ $(function(){
           var data = matchedData[i];
 
           // 이미지 삽입
-          $(this).find('.img_box').css('background-image', 'url(../' + data.img + ')');
+          $(this).find('.img_box').css('background-image', 'url(' + data.img + ')');
           // 상품명 삽입
           $(this).find('.text_box .prd_tit').text(data.tit);
           // 할인율 삽입
@@ -456,6 +456,8 @@ $(function(){
           $(this).find('.text_box .price_box .price').text(data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
           // 정상가 삽입 (3자리마다 콤마 정규식 포함)
           $(this).find('.text_box .price_box .price_before').text(data.priceBefore.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
+          $(this).hide().fadeIn(500);
         } else {
           // 데이터가 없는 경우 요소를 초기화
           $(this).find('.img_box').css('background-image', 'none');
@@ -463,6 +465,8 @@ $(function(){
           $(this).find('.text_box .price_box .rate').text('');
           $(this).find('.text_box .price_box .price').text('');
           $(this).find('.text_box .price_box .price_before').text('');
+
+          $(this).fadeOut();
         }
       });
     }
