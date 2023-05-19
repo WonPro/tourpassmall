@@ -209,7 +209,7 @@
   
   @media screen and (min-width: 768px) {
 
-    .tab_menu{
+    #prdRanking .tab_menu{
       justify-content: center;
       gap: 3.2rem;
     }
@@ -408,5 +408,15 @@
     padding-bottom: 2rem;
     border-bottom: 1px dashed var(--gray5);
   }
+
+  #monthlyPrd .monthly_container .monthly_item:last-child{
+    border: none;
+  }
   
+
+  @media screen and (min-width: 768px) {
+    #monthlyPrd #monthlyPrdSlide .slide_item {
+      height: 72.2rem;
+    }
+  }
 

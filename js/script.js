@@ -283,36 +283,190 @@ $(function(){
     }
 
     recommendPrd();
-    /* // Recommended Product */
+  /* // Recommended Product */
 
 
-    /* Monthly Product Slide */
+  /* Monthly Product Slide */
+    let dummyData3 =  [
+      {
+        id: 'jj',
+        total: 13486,
+        month: 96,
+        comment: 4237,
+        grade: 4.2,
+        img: 'img/img_main_visualSlide_jj.jpg',
+        tit: '제주투어패스 48시간 프리패스 제주도 여행 체험 관광지 감귤 액티비티 카트 ...',
+        rate: 54,
+        price: 106000,
+        priceBefore: 216000,
+        monthly: 202305,
+      },
+      {
+        id: 'bs',
+        total: 11974,
+        month: 154,
+        comment: 3174,
+        grade: 4.4,
+        img: 'img/img_main_visualSlide_bs.jpg',
+        tit: '부산투어패스 48시간 프리패스 부산 여행 체험 관광지 액티비티 카트 요트',
+        rate: 54,
+        price: 106000,
+        priceBefore: 216000,
+        monthly: 202305,
+      },
+      {
+        id: 'cy',
+        total: 442,
+        month: 3,
+        comment: 368,
+        grade: 4.9,
+        img: 'img/img_main_visualSlide_cy.jpg',
+        tit: '청양투어패스 48시간 프리패스 청양 여행 체험 관광지 액티비티 카페',
+        rate: 54,
+        price: 106000,
+        priceBefore: 216000,
+        monthly: 202305,
+      },
+      {
+        id: 'kb',
+        total: 6468,
+        month: 13,
+        comment: 72,
+        grade: 4.7,
+        img: 'img/img_main_visualSlide_kb.jpg',
+        tit: '경북투어패스 48시간 프리패스 경북 여행 체험 관광지 액티비티 카트',
+        rate: 54,
+        price: 106000,
+        priceBefore: 216000,
+        monthly: 202306,
+      },
+      {
+        id: 'jb',
+        total: 3447,
+        month: 22,
+        comment: 2248,
+        grade: 4.5,
+        img: 'img/img_main_visualSlide_jb.jpg',
+        tit: '전북투어패스 48시간 프리패스 전북 여행 체험 관광지 액티비티 카페',
+        rate: 54,
+        price: 106000,
+        priceBefore: 216000,
+        monthly: 202306,
+      },
+      {
+        id: 'cy',
+        total: 442,
+        month: 3,
+        comment: 368,
+        grade: 4.9,
+        img: 'img/img_main_visualSlide_cy.jpg',
+        tit: '청양투어패스 48시간 프리패스 청양 여행 체험 관광지 액티비티 카페',
+        rate: 54,
+        price: 106000,
+        priceBefore: 216000,
+        monthly: 202307,
+      },
+      {
+        id: 'ic',
+        total: 1967,
+        month: 35,
+        comment: 1045,
+        grade: 4.8,
+        img: 'img/img_main_visualSlide_ic.jpg',
+        tit: '인천투어패스 48시간 프리패스 인천 여행 체험 관광지 액티비티 카페',
+        rate: 54,
+        price: 106000,
+        priceBefore: 216000,
+        monthly: 202307,
+      },
+      {
+        id: 'bs',
+        total: 11974,
+        month: 154,
+        comment: 3174,
+        grade: 4.4,
+        img: 'img/img_main_visualSlide_bs.jpg',
+        tit: '부산투어패스 48시간 프리패스 부산 여행 체험 관광지 액티비티 카트 요트',
+        rate: 54,
+        price: 106000,
+        priceBefore: 216000,
+        monthly: 202308,
+      },
+      {
+        id: 'kb',
+        total: 6468,
+        month: 13,
+        comment: 72,
+        grade: 4.7,
+        img: 'img/img_main_visualSlide_kb.jpg',
+        tit: '경북투어패스 48시간 프리패스 경북 여행 체험 관광지 액티비티 카트',
+        rate: 54,
+        price: 106000,
+        priceBefore: 216000,
+        monthly: 202308,
+      }
+    ];
+
     let monthlyPrdSlide = $('#monthlyPrdSlide');
 
     monthlyPrdSlide.slick({
       dots: true,
+      arrows: false,
       slidesToScroll: 1,
     })
 
 
-    function monthlyPrd(){
-      // html 변경
-      $('#monthlyPrd .monthly_container .monthly_item').each(function(i){
-        // 이미지 삽입
-        $(this).find('.img_box').css('background-image', 'url(../' + dummyData[i].img + ')');
-        // 상품명 삽입
-        $(this).find('.text_box .prd_tit').text(dummyData[i].tit);
-        // 할인율 삽입
-        $(this).find('.text_box .price_box .rate').text(dummyData[i].rate);
-        // 판매가 삽입 (3자리마다 콤마 정규식 포함)
-        $(this).find('.text_box .price_box .price').text(dummyData[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-        // 정상가 삽입 (3자리마다 콤마 정규식 포함)
-        $(this).find('.text_box .price_box .price_before').text(dummyData[i].priceBefore.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    // 슬라이더 초기화 후 최초 데이터 등록
+    monthlyPrd();
+
+    // 슬라이드 변경 이벤트
+    $('#monthlyPrdSlide').on('afterChange', function(event, slick, currentSlide) {
+      // monthlyPrd 함수 실행하여 데이터를 HTML에 삽입
+      monthlyPrd();
+    });
+
+    // 데이터를 HTML에 삽입
+    function monthlyPrd() {
+      var slideName = $('#monthlyPrdSlide .slick-active').data('slidename');
+      var matchedData = [];
+
+      // 일치하는 데이터 찾기
+      dummyData3.forEach(function(data) {
+        if (data.monthly === slideName) {
+          matchedData.push(data);
+        }
+      });
+      // console.log(matchedData)
+
+      // 최대 2개의 아이템만 보여주기
+      matchedData = matchedData.slice(0, 2);
+
+      // HTML 요소에 데이터 삽입
+      $('.monthly_container .monthly_item').each(function(i) {
+        if (matchedData[i]) {
+          var data = matchedData[i];
+
+          // 이미지 삽입
+          $(this).find('.img_box').css('background-image', 'url(../' + data.img + ')');
+          // 상품명 삽입
+          $(this).find('.text_box .prd_tit').text(data.tit);
+          // 할인율 삽입
+          $(this).find('.text_box .price_box .rate').text(data.rate);
+          // 판매가 삽입 (3자리마다 콤마 정규식 포함)
+          $(this).find('.text_box .price_box .price').text(data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+          // 정상가 삽입 (3자리마다 콤마 정규식 포함)
+          $(this).find('.text_box .price_box .price_before').text(data.priceBefore.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        } else {
+          // 데이터가 없는 경우 요소를 초기화
+          $(this).find('.img_box').css('background-image', 'none');
+          $(this).find('.text_box .prd_tit').text('');
+          $(this).find('.text_box .price_box .rate').text('');
+          $(this).find('.text_box .price_box .price').text('');
+          $(this).find('.text_box .price_box .price_before').text('');
+        }
       });
     }
-
-    monthlyPrd();
-    /* // Monthly Product Slide */
+  /* // Monthly Product Slide */
     
 
   

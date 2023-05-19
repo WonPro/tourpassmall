@@ -80,7 +80,7 @@ body{
   display: flex;
   align-items: center;
   gap: 1rem;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -157,6 +157,15 @@ body{
 }
 
 @media screen and (min-width: 768px) {
+
+  .container{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .header{
+    left: calc(50% - 38.4rem);
+  }
 
   .mobile_hide{
     display: block;
