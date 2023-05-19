@@ -268,20 +268,52 @@ $(function(){
 
     
         // 할인율 삽입
-        $(this).find('.text_box .price_box .rate').text(dummyData2[i].rate);
+        $(this).find('.price_container .rate').text(dummyData2[i].rate);
+        if (dummyData2[i].rate == null){
+          $(this).find('.price_container .rate').addClass('null')
+        } 
     
         // 판매가 삽입 (3자리마다 콤마 정규식 포함)
-        $(this).find('.text_box .price_box .price').text(dummyData2[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $(this).find('.price_container .price_box .price').text(dummyData2[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     
         // 정상가 삽입 (3자리마다 콤마 정규식 포함)
         const priceBefore = dummyData2[i].priceBefore ? dummyData2[i].priceBefore.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
-        $(this).find('.text_box .price_box .price_before').text(priceBefore);
+        $(this).find('.price_container .price_box .price_before').text(priceBefore);
       });
     }
 
     recommendPrd();
+    /* // Recommended Product */
+
+
+    /* Monthly Product Slide */
+    let monthlyPrdSlide = $('#monthlyPrdSlide');
+
+    monthlyPrdSlide.slick({
+      dots: true,
+      slidesToScroll: 1,
+    })
+
+
+    function monthlyPrd(){
+      // html 변경
+      $('#monthlyPrd .monthly_container .monthly_item').each(function(i){
+        // 이미지 삽입
+        $(this).find('.img_box').css('background-image', 'url(../' + dummyData[i].img + ')');
+        // 상품명 삽입
+        $(this).find('.text_box .prd_tit').text(dummyData[i].tit);
+        // 할인율 삽입
+        $(this).find('.text_box .price_box .rate').text(dummyData[i].rate);
+        // 판매가 삽입 (3자리마다 콤마 정규식 포함)
+        $(this).find('.text_box .price_box .price').text(dummyData[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        // 정상가 삽입 (3자리마다 콤마 정규식 포함)
+        $(this).find('.text_box .price_box .price_before').text(dummyData[i].priceBefore.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+      });
+    }
+
+    monthlyPrd();
+    /* // Monthly Product Slide */
     
 
-  /* // Recommended Product */
   
 })

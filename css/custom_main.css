@@ -52,6 +52,36 @@
   #mainVisual #visualSlide .slide_item.bs{background-image: url(../img/img_main_visualSlide_bs.jpg);}
   #mainVisual #visualSlide .slide_item.jj{background-image: url(../img/img_main_visualSlide_jj.jpg);}
 
+  .slick-dots{
+    bottom: -2.6rem;
+  }
+
+  .slick-dots li{
+    width: 6px;
+    height: 6px;
+    margin: 0 6px 0 0;
+  }
+
+  .slick-dots li:last-child{
+    margin-right: 0;
+  }
+
+  .slick-dots li button{
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    background-color: var(--gray100);
+    border-radius: 50%;
+  }
+
+  .slick-dots li.slick-active button{
+    background-color: var(--primary-pink);
+  }
+
+  .slick-dots li button:before{
+    content: none;
+  }
+
   #mainVisual .slide_desc{
     margin-top: 7rem;
     font-size: 3rem;
@@ -176,80 +206,10 @@
     border-radius: 20px;
   }
 
-  #prdRanking .rank_container .rank_item{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    display: flex;
-    border-bottom: 1px solid var(--gray5);
-  }
-
-  #prdRanking .rank_container .rank_item .img_box{
-    width: 7.4rem;
-    height: 7.4rem;
-    margin-right: 1.6rem;
-    flex-shrink: 0;
-    border-radius: 1.2rem;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
-  #prdRanking .rank_container .text_box{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  #prdRanking .rank_container .text_box .prd_tit{
-    font-size: 1.4rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-
-  #prdRanking .rank_container .text_box .price_box{
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  #prdRanking .rank_container .text_box .price_box .rate{
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--primary-pink);
-  }
-
-  #prdRanking .rank_container .text_box .price_box .rate:after{
-    content: '%';
-    font-size: 1.6rem;
-    color: var(--primary-pink);
-  }
-
-  #prdRanking .rank_container .text_box .price_box .price{
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--gray800);
-  }
-
-  #prdRanking .rank_container .text_box .price_box .price:after{
-    content: '원';
-    padding-left: 0.1rem;
-    font-size: 1.6rem;
-    font-weight: normal;
-    color: var(--gray800);
-  }
-
-  #prdRanking .rank_container .text_box .price_box .price_before{
-    font-size: 1.2rem;
-    text-decoration: line-through;
-    color: var(--gray300);
-  }
-
+  
   @media screen and (min-width: 768px) {
 
-    #prdRanking .tab_menu{
+    .tab_menu{
       justify-content: center;
       gap: 3.2rem;
     }
@@ -268,7 +228,6 @@
       border: none;
     }
   }
-
   
 
   #recommendPrd .recommend_container{
@@ -332,16 +291,122 @@
   #recommendPrd .recommend_container .recommend_item .price_container{
     padding-left: 0.8rem;
     padding-right: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .price_container .rate{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-pink);
+  }
+
+  #recommendPrd .recommend_container .recommend_item .price_container .rate:after{
+    content: '%';
+    font-size: 1.6rem;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .price_container .rate.null:after{
+    content: none;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .price_container .price_box{
+    height: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+  }
+  
+  #recommendPrd .recommend_container .recommend_item .price_container .price_box .price_before{
+    font-size: 1.2rem;
+    color: var(--gray300);
+    text-decoration: line-through;
+  }
+  
+  #recommendPrd .recommend_container .recommend_item .price_container .price_box .price{
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .price_container .price_box .price:after{
+    content: '원';
+    font-size: 1.6rem;
+    font-weight: normal;
+  }
+
+  #recommendPrd .recommend_container .recommend_item .price_container .price_box .price.null:after{
+    content: none;
   }
 
   @media screen and (min-width: 768px) {
 
+    #recommendPrd .recommend_container{
+      gap: 0;
+    }
+
+    #recommendPrd .recommend_container .recommend_item{
+      width: 32%;
+      margin-right: 2%;
+      margin-bottom: 2%;
+    }
+
+    #recommendPrd .recommend_container .recommend_item:nth-child(3n){
+      margin-right: 0;
+    }
+
   }
 
   
+  #monthlyPrd{
+    background-color: #fff;
+  }
 
-  #monthlyPrd #bannerSlide{
+  #monthlyPrd .banner_container{
+    margin-top: 2rem;
+    background: #FFFFFF;
+    border: 1px solid #F8F8F8;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 2.4rem;
+  }
+  
+  #monthlyPrd #monthlyPrdSlide .slick-list{
+    border-radius: 2.4rem 2.4rem 0 0;
+    
+  }
+  
+  #monthlyPrd #monthlyPrdSlide .slide_item{
+    height: 94vw;
+    position: relative;
+    
+    background: url(../img/img_banner_01.jpg) center center / cover no-repeat;
+  }
 
+
+  #monthlyPrd #monthlyPrdSlide .slide_item .banner_tit{
+    padding: 3rem 0 0 3rem;
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--white);
+  }
+
+  #monthlyPrd #monthlyPrdSlide .slide_item .banner_sub_tit{
+    padding: 0.5rem 0 0 3rem;
+    font-size: 1.6em;
+    color: var(--white);
+  }
+
+  #monthlyPrd .monthly_container{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  #monthlyPrd .monthly_container .monthly_item{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed var(--gray5);
   }
   
 

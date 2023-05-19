@@ -80,7 +80,7 @@ body{
   display: flex;
   align-items: center;
   gap: 1rem;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -169,4 +169,75 @@ body{
   .slide_item:active{
     cursor: grabbing;
   }
+}
+
+.item_container .item_box{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  border-bottom: 1px solid var(--gray5);
+}
+
+ .item_container .item_box .img_box{
+  width: 7.4rem;
+  height: 7.4rem;
+  margin-right: 1.6rem;
+  flex-shrink: 0;
+  border-radius: 1.2rem;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+ .item_container .text_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+ .item_container .text_box .prd_tit{
+  font-size: 1.4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+ .item_container .text_box .price_box{
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+ .item_container .text_box .price_box .rate{
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-pink);
+}
+
+ .item_container .text_box .price_box .rate:after{
+  content: '%';
+  font-size: 1.6rem;
+  color: var(--primary-pink);
+}
+
+ .item_container .text_box .price_box .price{
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--gray800);
+}
+
+ .item_container .text_box .price_box .price:after{
+  content: '원';
+  padding-left: 0.1rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--gray800);
+}
+
+ .item_container .text_box .price_box .price_before{
+  font-size: 1.2rem;
+  text-decoration: line-through;
+  color: var(--gray300);
 }
